@@ -3,13 +3,15 @@
 
 using namespace std;
 
-class Reservation {
+class Reservation
+{
 private:
     int seatNumber;
 
 public:
     Reservation(int seatNumber);
     void confirmReservation() const;
+    void setSeatNumber(int seatNumber);
 };
 
 #endif
