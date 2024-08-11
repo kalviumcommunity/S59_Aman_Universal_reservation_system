@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Place.h"
 #include "Reservation.h"
 
@@ -5,20 +6,33 @@ using namespace std;
 
 int main()
 {
-    Place cinema("Cineplex", 150);
-    cinema.displayInfo();
+    // Array of Place objects
+    const int numPlaces = 3;
+    Place places[numPlaces] = {
+        Place("Cineplex", 150),
+        Place("Grand Cinema", 200),
+        Place("Downtown Theater", 100)};
 
-    // Demonstrating the usage of 'this' pointer with setter methods
-    cinema.setName("Grand Cinema");
-    cinema.setTotalSeats(200);
-    cinema.displayInfo();
+    // Displaying information for all Place objects
+    cout << "Places Information:" << endl;
+    for (int i = 0; i < numPlaces; ++i)
+    {
+        places[i].displayInfo();
+    }
 
-    Reservation booking(42);
-    booking.confirmReservation();
+    // Array of Reservation objects
+    const int numReservations = 3;
+    Reservation reservations[numReservations] = {
+        Reservation(42),
+        Reservation(35),
+        Reservation(18)};
 
-    // Demonstrating the usage of 'this' pointer with setter method
-    booking.setSeatNumber(45);
-    booking.confirmReservation();
+    // Confirming reservations for all Reservation objects
+    cout << "\nReservations Confirmation:" << endl;
+    for (int i = 0; i < numReservations; ++i)
+    {
+        reservations[i].confirmReservation();
+    }
 
     return 0;
 }
