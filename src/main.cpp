@@ -6,9 +6,9 @@ using namespace std;
 
 int main()
 {
-    // Array of Place objects
+    // Dynamic allocation of Place objects array
     const int numPlaces = 3;
-    Place places[numPlaces] = {
+    Place *places = new Place[numPlaces]{
         Place("Cineplex", 150),
         Place("Grand Cinema", 200),
         Place("Downtown Theater", 100)};
@@ -20,9 +20,9 @@ int main()
         places[i].displayInfo();
     }
 
-    // Array of Reservation objects
+    // Dynamic allocation of Reservation objects array
     const int numReservations = 3;
-    Reservation reservations[numReservations] = {
+    Reservation *reservations = new Reservation[numReservations]{
         Reservation(42),
         Reservation(35),
         Reservation(18)};
@@ -33,6 +33,10 @@ int main()
     {
         reservations[i].confirmReservation();
     }
+
+    // Freeing allocated memory
+    delete[] places;
+    delete[] reservations;
 
     return 0;
 }
