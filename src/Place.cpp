@@ -2,7 +2,9 @@
 #include <iostream> 
 using namespace std;
 
-Place::Place(const string &name, int totalSeats) : name(name), totalSeats(totalSeats) {}
+Place::Place(const string &name, int totalSeats) : name(name), totalSeats(totalSeats) { placeCount++ ;}
+
+int Place::placeCount = 0;
 
 void Place::displayInfo() const
 {

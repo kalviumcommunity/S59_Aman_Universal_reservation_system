@@ -2,7 +2,9 @@
 #include <iostream> 
 using namespace std;
 
-Reservation::Reservation(int seatNumber) : seatNumber(seatNumber) {}
+Reservation::Reservation(int seatNumber) : seatNumber(seatNumber) { NumOfSeatReserved++; }
+
+int Reservation::NumOfSeatReserved = 0;
 
 void Reservation::confirmReservation() const
 {
