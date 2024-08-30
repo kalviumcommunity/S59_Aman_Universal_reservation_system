@@ -34,6 +34,11 @@ int main()
         reservations[i].confirmReservation();
     }
 
+
+    // Printing static variables to console
+    cout << "Total number of places registered: " << Place::placeCount << endl;
+    cout << "Total number of seats reserved: " << Reservation::NumOfSeatReserved << endl;
+
     // Freeing allocated memory
     delete[] places;
     delete[] reservations;

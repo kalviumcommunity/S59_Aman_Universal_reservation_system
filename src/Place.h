@@ -10,13 +10,14 @@ class Place
 private:
     string name;
     int totalSeats;
-
+    
 public:
     Place(const string &name, int totalSeats);
     void displayInfo() const;
     bool checkAvailability() const;
     void setName(const string &name);
     void setTotalSeats(int totalSeats);
+    static int placeCount;
 };
 
 #endif
