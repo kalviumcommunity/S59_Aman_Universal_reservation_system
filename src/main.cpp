@@ -6,43 +6,31 @@ using namespace std;
 
 int main()
 {
-    // Dynamic allocation of Place objects
-    const int numPlaces = 3;
-    Place *places = new Place[numPlaces]{
-        Place("Cineplex", 150),
-        Place("Grand Cinema", 200),
-        Place("Downtown Theater", 100)};
+    // Using default constructor for Place
+    Place defaultPlace;
+    defaultPlace.displayInfo();
 
-    // Displaying places' info using the public interface
-    cout << "Places Information (Abstraction in action):" << endl;
-    for (int i = 0; i < numPlaces; ++i)
-    {
-        places[i].displayInfo(); // Only exposes essential details
-    }
+    // Using parameterized constructor for Place
+    Place cineplex("Cineplex", 150);
+    cineplex.displayInfo();
 
-    // Modifying and accessing data using public interface
-    places[0].setName("Updated Cineplex");
-    places[0].setTotalSeats(120);
-    cout << "\nUpdated Place Info (Abstraction through accessors/mutators):" << endl;
-    places[0].displayInfo();
+    // Using copy constructor for Place
+    Place copiedPlace(cineplex);
+    copiedPlace.displayInfo();
 
-    // Dynamic allocation of Reservation objects
-    const int numReservations = 3;
-    Reservation *reservations = new Reservation[numReservations]{
-        Reservation(42),
-        Reservation(35),
-        Reservation(18)};
+    // Display total number of places
+    cout << "Total number of places registered: " << Place::getTotalPlaces() << endl;
 
-    // Confirming reservations using the public interface
-    cout << "\nReservations Confirmation (Abstraction in action):" << endl;
-    for (int i = 0; i < numReservations; ++i)
-    {
-        reservations[i].confirmReservation(); // Hides the internal workings
-    }
+    // Using default constructor for Reservation
+    Reservation defaultReservation;
+    defaultReservation.confirmReservation();
 
-    // Free allocated memory
-    delete[] places;
-    delete[] reservations;
+    // Using parameterized constructor for Reservation
+    Reservation specificReservation(42);
+    specificReservation.confirmReservation();
+
+    // Display total number of seats reserved
+    cout << "Total number of seats reserved: " << Reservation::NumOfSeatReserved << endl;
 
     return 0;
 }

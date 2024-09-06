@@ -2,35 +2,64 @@
 #define PLACE_H
 
 #include <string>
+#include <iostream>
 using namespace std;
 
 class Place
 {
 private:
-    // Private data members (implementation details hidden)
     string name;
     int totalSeats;
 
 public:
-    // Static member, public to provide access through public interface
     static int placeCount;
 
-    // Constructor
-    Place(const string &name, int totalSeats);
+    // Default constructor
+    Place() : name("Unnamed"), totalSeats(0)
+    {
+        cout << "Default Constructor Called for Place: " << name << endl;
+        placeCount++;
+    }
 
-    // Public accessors and mutators (interface)
-    string getName() const;
-    void setName(const string &name);
+    // Parameterized constructor
+    Place(const string &name, int totalSeats) : name(name), totalSeats(totalSeats)
+    {
+        cout << "Parameterized Constructor Called for Place: " << name << endl;
+        placeCount++;
+    }
 
-    int getTotalSeats() const;
-    void setTotalSeats(int totalSeats);
+    // Copy constructor
+    Place(const Place &other) : name(other.name), totalSeats(other.totalSeats)
+    {
+        cout << "Copy Constructor Called for Place: " << name << endl;
+        placeCount++;
+    }
 
-    // Public methods for interface
-    void displayInfo() const;
-    bool checkAvailability() const;
+    // Destructor
+    ~Place()
+    {
+        cout << "Destructor Called for Place: " << name << endl;
+        placeCount--;
+    }
 
-    // Static member function
-    static int getTotalPlaces();
+    // Accessors and Mutators (Encapsulation)
+    string getName() const { return name; }
+    void setName(const string &name) { this->name = name; }
+
+    int getTotalSeats() const { return totalSeats; }
+    void setTotalSeats(int totalSeats) { this->totalSeats = totalSeats; }
+
+    void displayInfo() const
+    {
+        cout << "Place: " << name << ", Total Seats: " << totalSeats << endl;
+    }
+
+    static int getTotalPlaces()
+    {
+        return placeCount;
+    }
 };
+
+int Place::placeCount = 0;
 
 #endif
