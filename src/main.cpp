@@ -6,27 +6,38 @@ using namespace std;
 
 int main()
 {
-    // Using default constructor for Place
+    // Default constructor for Place
     Place defaultPlace;
     defaultPlace.displayInfo();
 
-    // Using parameterized constructor for Place
+    // Parameterized constructor for Place
     Place cineplex("Cineplex", 150);
     cineplex.displayInfo();
 
-    // Using copy constructor for Place
+    // Copy constructor for Place
     Place copiedPlace(cineplex);
     copiedPlace.displayInfo();
 
-    // Display total number of places
+    // Display total places
     cout << "Total number of places registered: " << Place::getTotalPlaces() << endl;
 
-    // Using default constructor for Reservation
+    // Using setter to modify Place details (Encapsulation)
+    defaultPlace.setName("Grand Cinema");
+    defaultPlace.setTotalSeats(200);
+    cout << "Updated Place Information (Encapsulation):" << endl;
+    defaultPlace.displayInfo();
+
+    // Default constructor for Reservation
     Reservation defaultReservation;
     defaultReservation.confirmReservation();
 
-    // Using parameterized constructor for Reservation
+    // Parameterized constructor for Reservation
     Reservation specificReservation(42);
+    specificReservation.confirmReservation();
+
+    // Using setter to modify Reservation details (Encapsulation)
+    specificReservation.setSeatNumber(35);
+    cout << "Updated Reservation Information (Encapsulation):" << endl;
     specificReservation.confirmReservation();
 
     // Display total number of seats reserved
