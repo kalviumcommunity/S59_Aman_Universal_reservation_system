@@ -6,20 +6,21 @@ using namespace std;
 class Reservation
 {
 private:
+    // Private data member
     int seatNumber;
 
 public:
+    // Static member
     static int NumOfSeatReserved;
 
     // Constructor
     Reservation(int seatNumber);
 
-    // Accessors (Getters)
-    int getSeatNumber() const { return seatNumber; }
+    // Public accessors and mutators
+    int getSeatNumber() const;
+    void setSeatNumber(int seatNumber);
 
-    // Mutators (Setters)
-    void setSeatNumber(int seatNumber) { this->seatNumber = seatNumber; }
-
+    // Public interface
     void confirmReservation() const;
 };
 
