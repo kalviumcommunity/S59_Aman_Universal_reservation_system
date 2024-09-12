@@ -19,11 +19,19 @@ public:
         return placeCount;
     }
 
+    // Constructor
     Place(const string &name, int totalSeats);
+
+    // Accessors (Getters)
+    string getName() const { return name; }
+    int getTotalSeats() const { return totalSeats; }
+
+    // Mutators (Setters)
+    void setName(const string &name) { this->name = name; }
+    void setTotalSeats(int totalSeats) { this->totalSeats = totalSeats; }
+
     void displayInfo() const;
     bool checkAvailability() const;
-    void setName(const string &name);
-    void setTotalSeats(int totalSeats);
 };
 
 #endif

@@ -10,9 +10,17 @@ private:
 
 public:
     static int NumOfSeatReserved;
+
+    // Constructor
     Reservation(int seatNumber);
+
+    // Accessors (Getters)
+    int getSeatNumber() const { return seatNumber; }
+
+    // Mutators (Setters)
+    void setSeatNumber(int seatNumber) { this->seatNumber = seatNumber; }
+
     void confirmReservation() const;
-    void setSeatNumber(int seatNumber);
 };
 
 #endif
