@@ -7,31 +7,30 @@ using namespace std;
 class Place
 {
 private:
+    // Private data members (implementation details hidden)
     string name;
     int totalSeats;
 
 public:
+    // Static member, public to provide access through public interface
     static int placeCount;
-
-    // Static member function
-    static int getTotalPlaces()
-    {
-        return placeCount;
-    }
 
     // Constructor
     Place(const string &name, int totalSeats);
 
-    // Accessors (Getters)
-    string getName() const { return name; }
-    int getTotalSeats() const { return totalSeats; }
+    // Public accessors and mutators (interface)
+    string getName() const;
+    void setName(const string &name);
 
-    // Mutators (Setters)
-    void setName(const string &name) { this->name = name; }
-    void setTotalSeats(int totalSeats) { this->totalSeats = totalSeats; }
+    int getTotalSeats() const;
+    void setTotalSeats(int totalSeats);
 
+    // Public methods for interface
     void displayInfo() const;
     bool checkAvailability() const;
+
+    // Static member function
+    static int getTotalPlaces();
 };
 
 #endif
