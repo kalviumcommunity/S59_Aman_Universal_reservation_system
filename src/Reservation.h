@@ -1,27 +1,48 @@
 #ifndef RESERVATION_H
 #define RESERVATION_H
 
+#include <iostream>
 using namespace std;
 
 class Reservation
 {
 private:
-    // Private data member
     int seatNumber;
 
 public:
-    // Static member
     static int NumOfSeatReserved;
 
-    // Constructor
-    Reservation(int seatNumber);
+    // Default constructor
+    Reservation() : seatNumber(0)
+    {
+        cout << "Default Constructor Called for Reservation with seat number: " << seatNumber << endl;
+        NumOfSeatReserved++;
+    }
 
-    // Public accessors and mutators
-    int getSeatNumber() const;
-    void setSeatNumber(int seatNumber);
+    // Parameterized constructor
+    Reservation(int seatNumber) : seatNumber(seatNumber)
+    {
+        cout << "Parameterized Constructor Called for Reservation with seat number: " << seatNumber << endl;
+        NumOfSeatReserved++;
+    }
 
-    // Public interface
-    void confirmReservation() const;
+    // Destructor
+    ~Reservation()
+    {
+        cout << "Destructor Called for Reservation with seat number: " << seatNumber << endl;
+        NumOfSeatReserved--;
+    }
+
+    // Accessors and Mutators
+    int getSeatNumber() const { return seatNumber; }
+    void setSeatNumber(int seatNumber) { this->seatNumber = seatNumber; }
+
+    void confirmReservation() const
+    {
+        cout << "Reservation confirmed for seat number: " << seatNumber << endl;
+    }
 };
+
+int Reservation::NumOfSeatReserved = 0;
 
 #endif
