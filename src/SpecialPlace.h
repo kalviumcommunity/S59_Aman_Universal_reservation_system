@@ -5,12 +5,9 @@
 
 class SpecialPlace : public Place
 {
-private:
-    bool hasVIPSeats;
-
 public:
-    SpecialPlace(const string &name, int totalSeats, bool hasVIPSeats);
-    void displayInfo() const override; // Override keyword for clarity
+    SpecialPlace(const string &name, int totalSeats) : Place(name, totalSeats) {}
+    void displayInfo() const override;  // Override displayInfo
 };
 
 #endif
