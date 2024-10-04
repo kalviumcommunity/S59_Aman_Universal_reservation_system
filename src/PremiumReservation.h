@@ -10,7 +10,7 @@ private:
 
 public:
     PremiumReservation(int seatNumber, double price);
-    void confirmReservation() const;
+    void confirmReservation() const override; // Override keyword
 };
 
 #endif

@@ -10,7 +10,7 @@ private:
 
 public:
     SpecialPlace(const string &name, int totalSeats, bool hasVIPSeats);
-    void displayInfo() const;
+    void displayInfo() const override; // Override keyword for clarity
 };
 
 #endif

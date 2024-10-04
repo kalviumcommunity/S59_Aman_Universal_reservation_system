@@ -1,7 +1,8 @@
+// Reservation.h
 #ifndef RESERVATION_H
 #define RESERVATION_H
 
-#include <iostream>
+#include <string>
 using namespace std;
 
 class Reservation
@@ -10,21 +11,10 @@ private:
     int seatNumber;
 
 public:
-    static int NumOfSeatReserved;
-
-    // Constructors
-    Reservation();
     Reservation(int seatNumber);
-
-    // Destructor
-    ~Reservation();
-
-    // Getters and Setters (Encapsulation)
-    int getSeatNumber() const;
+    virtual void confirmReservation() const; // Made virtual
     void setSeatNumber(int seatNumber);
-
-    // Other member functions
-    void confirmReservation() const;
+    virtual ~Reservation() {} // Virtual destructor
 };
 
 #endif
