@@ -14,12 +14,7 @@ bool Place::checkAvailability() const
     return totalSeats > 0;
 }
 
-void Place::setName(const string &name)
+string Place::getName() const
 {
-    this->name = name;
-}
-
-void Place::setTotalSeats(int totalSeats)
-{
-    this->totalSeats = totalSeats;
+    return name;
 }

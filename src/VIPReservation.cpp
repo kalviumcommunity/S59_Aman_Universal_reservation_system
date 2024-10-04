@@ -1,6 +1,5 @@
 #include "VIPReservation.h"
 #include <iostream>
-
 using namespace std;
 
 VIPReservation::VIPReservation(int seatNumber, double price, bool complimentaryDrinks)
@@ -8,6 +7,9 @@ VIPReservation::VIPReservation(int seatNumber, double price, bool complimentaryD
 
 void VIPReservation::confirmReservation() const
 {
-    PremiumReservation::confirmReservation();  // Call base class function
-    cout << "Complimentary Drinks: " << (complimentaryDrinks ? "Yes" : "No") << endl;
+    PremiumReservation::confirmReservation();
+    if (complimentaryDrinks)
+    {
+        cout << "Complimentary drinks included." << endl;
+    }
 }

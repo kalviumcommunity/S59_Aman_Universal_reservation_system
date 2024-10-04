@@ -7,6 +7,6 @@ PremiumReservation::PremiumReservation(int seatNumber, double price)
 
 void PremiumReservation::confirmReservation() const
 {
-    Reservation::confirmReservation(); // Call base class function
-    cout << "Premium Reservation Price: $" << price << endl;
+    cout << "Premium reservation confirmed for seat number: " << seatNumber
+         << " at a price of $" << price << endl;
 }

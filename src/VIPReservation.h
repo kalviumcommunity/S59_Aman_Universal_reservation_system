@@ -10,7 +10,7 @@ private:
 
 public:
     VIPReservation(int seatNumber, double price, bool complimentaryDrinks);
-    void confirmReservation() const;
+    void confirmReservation() const override;
 };
 
 #endif
