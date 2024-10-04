@@ -14,52 +14,26 @@ private:
 public:
     static int placeCount;
 
-    // Default constructor
-    Place() : name("Unnamed"), totalSeats(0)
-    {
-        cout << "Default Constructor Called for Place: " << name << endl;
-        placeCount++;
-    }
-
-    // Parameterized constructor
-    Place(const string &name, int totalSeats) : name(name), totalSeats(totalSeats)
-    {
-        cout << "Parameterized Constructor Called for Place: " << name << endl;
-        placeCount++;
-    }
-
-    // Copy constructor
-    Place(const Place &other) : name(other.name), totalSeats(other.totalSeats)
-    {
-        cout << "Copy Constructor Called for Place: " << name << endl;
-        placeCount++;
-    }
+    // Constructors
+    Place();
+    Place(const string &name, int totalSeats);
+    Place(const Place &other);
 
     // Destructor
-    ~Place()
-    {
-        cout << "Destructor Called for Place: " << name << endl;
-        placeCount--;
-    }
+    ~Place();
 
-    // Accessors and Mutators (Encapsulation)
-    string getName() const { return name; }
-    void setName(const string &name) { this->name = name; }
+    // Getters and Setters (Encapsulation)
+    string getName() const;
+    void setName(const string &name);
 
-    int getTotalSeats() const { return totalSeats; }
-    void setTotalSeats(int totalSeats) { this->totalSeats = totalSeats; }
+    int getTotalSeats() const;
+    void setTotalSeats(int totalSeats);
 
-    void displayInfo() const
-    {
-        cout << "Place: " << name << ", Total Seats: " << totalSeats << endl;
-    }
+    // Other member functions
+    void displayInfo() const;
 
-    static int getTotalPlaces()
-    {
-        return placeCount;
-    }
+    // Static function to get total places
+    static int getTotalPlaces();
 };
-
-int Place::placeCount = 0;
 
 #endif
