@@ -1,5 +1,6 @@
+
 #include "Place.h"
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 Place::Place(const string &name, int totalSeats) : name(name), totalSeats(totalSeats) {}
@@ -12,4 +13,14 @@ void Place::displayInfo() const
 bool Place::checkAvailability() const
 {
     return totalSeats > 0;
+}
+
+void Place::setName(const string &name)
+{
+    this->name = name;
+}
+
+void Place::setTotalSeats(int totalSeats)
+{
+    this->totalSeats = totalSeats;
 }

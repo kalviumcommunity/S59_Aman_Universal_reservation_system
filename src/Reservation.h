@@ -1,6 +1,7 @@
 #ifndef RESERVATION_H
 #define RESERVATION_H
 
+#include <string>
 using namespace std;
 
 class Reservation
@@ -10,8 +11,9 @@ private:
 
 public:
     Reservation(int seatNumber);
-    void confirmReservation() const;
+    virtual void confirmReservation() const; // Made virtual
     void setSeatNumber(int seatNumber);
+    virtual ~Reservation() {} // Virtual destructor
 };
 
 #endif
