@@ -1,4 +1,3 @@
-
 #include "Place.h"
 #include <iostream>
 using namespace std;
