@@ -1,16 +1,28 @@
-#ifndef VIPRESERVATION_H
-#define VIPRESERVATION_H
+#pragma once
+#include "Reservation.h"
 
-#include "PremiumReservation.h"
-
-class VIPReservation : public PremiumReservation
-{
+class VIPReservation : public Reservation {
 private:
-    bool complimentaryDrinks;
+    std::string vipPackage;
+    double vipDiscount;
 
 public:
-    VIPReservation(int seatNumber, double price, bool complimentaryDrinks);
-    void confirmReservation() const override;
-};
+    VIPReservation(const std::string& d, int dur, const std::string& name,
+                   const std::string& contact, const std::string& package)
+        : Reservation(d, dur, name, contact), vipPackage(package) {
+        vipDiscount = calculateDiscount();
+    }
 
-#endif
+    double calculateDiscount() const {
+        if (vipPackage == "Gold") return 0.15;
+        if (vipPackage == "Platinum") return 0.20;
+        return 0.10; // Silver
+    }
+
+    double getDiscount() const { return vipDiscount; }
+
+    std::string getDetails() const override {
+        return Reservation::getDetails() + "\nVIP Package: " + vipPackage +
+               "\nDiscount: " + std::to_string(vipDiscount * 100) + "%";
+    }
+};

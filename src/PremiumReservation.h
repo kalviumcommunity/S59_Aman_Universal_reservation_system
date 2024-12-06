@@ -9,8 +9,14 @@ protected:
     double price;
 
 public:
-    PremiumReservation(int seatNumber, double price = 50.0);
-    void confirmReservation() const override;
+    PremiumReservation(int seatNumber, double price = 50.0)
+        : Reservation(seatNumber), price(price) {}
+
+    void confirmReservation() const override
+    {
+        cout << "Premium reservation confirmed for seat number: " << seatNumber
+             << " at a price of $" << price << endl;
+    }
 };
 
 #endif

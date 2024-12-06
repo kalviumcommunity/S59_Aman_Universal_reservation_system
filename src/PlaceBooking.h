@@ -5,25 +5,28 @@
 #include "Place.h"
 #include <iostream>
 
-class PlaceBooking : public Booking
-{
+using namespace std;
+
+// Booking for a specific place (DIP)
+class PlaceBooking : public Booking {
 private:
-    Place place;
+    Place *place; // Dependency Injection for flexibility
 
 public:
-    PlaceBooking(const string &name, int totalSeats) : place(name, totalSeats) {}
+    PlaceBooking(Place *place) : place(place) {}
 
-    // Override the virtual function from the base class
-    void confirmBooking() const override
-    {
-        if (place.checkAvailability())
-        {
-            cout << "Booking confirmed for place: " << place.getName() << endl;
+    void confirmBooking() const override {
+        if (place->checkAvailability()) {
+            cout << "Booking confirmed for place: " << place->getName() << endl;
+            place->reserveSeat();
+        } else {
+            cout << "No seats available at place: " << place->getName() << endl;
         }
-        else
-        {
-            cout << "No seats available at place: " << place.getName() << endl;
-        }
+    }
+
+    ~PlaceBooking() {
+        // No ownership assumed; cleanup if needed
+        // delete place;
     }
 };
 
